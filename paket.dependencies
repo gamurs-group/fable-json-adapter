@@ -1,0 +1,11 @@
+source https://www.nuget.org/api/v2
+content:none
+
+nuget Fable.Core ~> 2
+nuget Fable.Import.MochaJS
+
+clitool dotnet-fable
+
+group Build
+    source https://www.nuget.org/api/v2
+    nuget FAKE

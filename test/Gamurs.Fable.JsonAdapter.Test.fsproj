@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>Gamurs.Fable.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../src/Gamurs.Fable.JsonAdapter.fsproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Include="Matchers.fs" />
+    <Compile Include="MatchersTest.fs" />
+    <Compile Include="JsonAdapterTest.fs" />
+    <Compile Include="RunTests.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fable.Import.MochaJS" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="JsonAdapterFixture.json" />
+  </ItemGroup>
+
+  <Import Project="..\.paket\Paket.Restore.targets" />
+
+</Project>

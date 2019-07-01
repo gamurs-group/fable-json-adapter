@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Summary>A simple pipeline-based Fable API for adapting and validating POJOs into F# types.</Summary>
+    <Description>A simple pipeline-based Fable API for adapting and validating POJOs into F# types.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Gamurs Pty Ltd</Authors>
+    <PackageLicenseUrl>https://github.com/gamurs-group/fable-json-adapter/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/gamurs-group/fable-json-adapter</PackageProjectUrl>
+    <PackageTags>F#, fsharp, fable2, fable-bindings, json</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Gamurs.Fable.JsonAdapter.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="*.fsproj; *.fs" PackagePath="fable\" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Gamurs.Fable.JsonAdapter", "src\Gamurs.Fable.JsonAdapter.fsproj", "{1235091D-0B44-454A-809D-DE43D2E6329D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Gamurs.Fable.JsonAdapter.Test", "test\Gamurs.Fable.JsonAdapter.Test.fsproj", "{90A22F52-6159-4325-A17D-B15DB011CC66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1235091D-0B44-454A-809D-DE43D2E6329D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1235091D-0B44-454A-809D-DE43D2E6329D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1235091D-0B44-454A-809D-DE43D2E6329D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1235091D-0B44-454A-809D-DE43D2E6329D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A22F52-6159-4325-A17D-B15DB011CC66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A22F52-6159-4325-A17D-B15DB011CC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A22F52-6159-4325-A17D-B15DB011CC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A22F52-6159-4325-A17D-B15DB011CC66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

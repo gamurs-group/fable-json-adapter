@@ -1,0 +1,18 @@
+{
+    "null" : null,
+    "emptyObj" : {},
+    "obj" : {
+        "field" : "value"
+    },
+    "emptyArray" : [],
+    "array" : [
+        "string1",
+        "string2"
+    ],
+    "emptyString" : "",
+    "string" : "a string",
+    "int" : 123,
+    "float" : 10.569845,
+    "iso_date_time": "2019-05-22T02:29:00.1347954Z",
+    "invalid_date_time": "not a date time"
+}
