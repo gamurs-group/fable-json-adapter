@@ -261,6 +261,58 @@ module JsonAdapter =
         |> (validateRequired fieldName)
 
     /// <summary>
+    ///     Get the value of a boolean field from a Javascript object.
+    ///     Raises an exception if the field contains a value of type other than
+    ///     boolean.
+    /// </summary>
+    ///
+    /// <param name="fieldName">
+    ///     The name of the field to get.
+    /// </param>
+    ///
+    /// <param name="parentObj">
+    ///     The Javascript object from which to get the field.
+    /// </param>
+    ///
+    /// <returns>
+    ///     The optional value of the field if it is a boolean.
+    /// </returns>
+    let getBooleanOption
+        (fieldName : string)
+        (parentObj : obj) : bool option =
+
+        getFieldOption
+            TypePredicate.isBoolean
+            fieldName
+            parentObj
+
+    /// <summary>
+    ///     Get the value of a boolean field from a Javascript object.
+    ///     Raises an exception if the field does not contain a value of type
+    ///     boolean.
+    /// </summary>
+    ///
+    /// <param name="fieldName">
+    ///     The name of the field to get.
+    /// </param>
+    ///
+    /// <param name="parentObj">
+    ///     The Javascript object from which to get the field.
+    /// </param>
+    ///
+    /// <returns>
+    ///     The value of the field if it is a boolean.
+    /// </returns>
+    let getBoolean
+        (fieldName : string)
+        (parentObj : obj) : bool =
+
+        getBooleanOption
+            fieldName
+            parentObj
+        |> (validateRequired fieldName)
+
+    /// <summary>
     ///     Get the value of a string field from a Javascript object.
     ///     Raises an exception if the field contains a value of type other than
     ///     string.
