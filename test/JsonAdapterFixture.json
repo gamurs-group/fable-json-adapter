@@ -9,6 +9,8 @@
         "string1",
         "string2"
     ],
+    "boolTrue" : true,
+    "boolFalse" : false,
     "emptyString" : "",
     "string" : "a string",
     "int" : 123,
