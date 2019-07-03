@@ -67,12 +67,12 @@ module JsonAdapter =
     let private validateType
         (typePredicate : obj -> bool)
         (fieldName : string)
-        (value : 'a)
+        (value : obj)
         : 'a =
 
         match typePredicate value with
         | true ->
-            value
+            value :?> 'a
         | false ->
             let actualType = typeof obj
             sprintf
@@ -128,7 +128,7 @@ module JsonAdapter =
     ///     The object field if it passed the type-validation and was not null
     ///     undefined.
     /// </returns>
-    let private getFieldOption<'a when 'a : null>
+    let private getFieldOption<'a>
         (typePredicate : obj -> bool)
         (fieldName : string)
         (parentObj : obj) : 'a option =
