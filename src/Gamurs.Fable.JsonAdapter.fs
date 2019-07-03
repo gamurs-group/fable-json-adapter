@@ -65,7 +65,7 @@ module JsonAdapter =
             |> raise
 
     let private validateType
-        (typePredicate : 'a -> bool)
+        (typePredicate : obj -> bool)
         (fieldName : string)
         (value : 'a)
         : 'a =
@@ -129,7 +129,7 @@ module JsonAdapter =
     ///     undefined.
     /// </returns>
     let private getFieldOption<'a when 'a : null>
-        (typePredicate : 'a -> bool)
+        (typePredicate : obj -> bool)
         (fieldName : string)
         (parentObj : obj) : 'a option =
 
@@ -145,7 +145,7 @@ module JsonAdapter =
 
     /// Get a requred field, raise an exception if it is null or undefined.
     let private getField<'a when 'a : null>
-        (typePredicate : 'a -> bool)
+        (typePredicate : obj -> bool)
         (fieldName : string)
         (parentObj : obj) : 'a =
 
