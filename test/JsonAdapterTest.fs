@@ -558,3 +558,63 @@ describe "JsonAdapter" <| fun _ ->
             // Act / Assert
             expectException <| fun _ ->
                 JsonAdapter.getIsoDateTimeOffset "invalid_date_time" exampleJson
+                
+    describe "getBooleanOption" <| fun _ ->
+
+        it "should parse true as Some true" <| fun _ ->
+            // Act
+            let actual = JsonAdapter.getBooleanOption "boolTrue" exampleJson
+            let expected = Some true
+
+            // Assert
+            expect actual <| equalTo expected
+
+        it "should parse false as Some false" <| fun _ ->
+            // Act
+            let actual = JsonAdapter.getBooleanOption "boolFalse" exampleJson
+            let expected = Some false
+
+            // Assert
+            expect actual <| equalTo expected
+
+        it "should parse a missing field as None" <| fun _ ->
+            // Act
+            let actual = JsonAdapter.getBooleanOption "missing" exampleJson
+
+            // Assert
+            expect actual <| isNone
+
+        it "should parse a null field as None" <| fun _ ->
+            // Act
+            let actual = JsonAdapter.getBooleanOption "null" exampleJson
+
+            // Assert
+            expect actual <| isNone
+
+    describe "getBoolean" <| fun _ ->
+
+        it "should parse true as true" <| fun _ ->
+            // Act
+            let actual = JsonAdapter.getBoolean "boolTrue" exampleJson
+            let expected = true
+
+            // Assert
+            expect actual <| equalTo expected
+
+        it "should parse false as false" <| fun _ ->
+            // Act
+            let actual = JsonAdapter.getBoolean "boolFalse" exampleJson
+            let expected = false
+
+            // Assert
+            expect actual <| equalTo expected
+
+        it "should raise an exception for a missing field" <| fun _ ->
+            // Act / Assert
+            expectException <| fun _ ->
+                JsonAdapter.getBoolean "missing" exampleJson
+
+        it "should raise an exception for a null field" <| fun _ ->
+            // Act / Assert
+            expectException <| fun _ ->
+                JsonAdapter.getBoolean "null" exampleJson

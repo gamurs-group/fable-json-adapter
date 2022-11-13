@@ -65,14 +65,14 @@ module JsonAdapter =
             |> raise
 
     let private validateType
-        (typePredicate : 'a -> bool)
+        (typePredicate : obj -> bool)
         (fieldName : string)
-        (value : 'a)
+        (value : obj)
         : 'a =
 
         match typePredicate value with
         | true ->
-            value
+            value :?> 'a
         | false ->
             let actualType = typeof obj
             sprintf
@@ -128,8 +128,8 @@ module JsonAdapter =
     ///     The object field if it passed the type-validation and was not null
     ///     undefined.
     /// </returns>
-    let private getFieldOption<'a when 'a : null>
-        (typePredicate : 'a -> bool)
+    let private getFieldOption<'a>
+        (typePredicate : obj -> bool)
         (fieldName : string)
         (parentObj : obj) : 'a option =
 
@@ -145,7 +145,7 @@ module JsonAdapter =
 
     /// Get a requred field, raise an exception if it is null or undefined.
     let private getField<'a when 'a : null>
-        (typePredicate : 'a -> bool)
+        (typePredicate : obj -> bool)
         (fieldName : string)
         (parentObj : obj) : 'a =
 
@@ -256,6 +256,58 @@ module JsonAdapter =
         (parentObj : obj) : 'a list =
 
         getArrayOption
+            fieldName
+            parentObj
+        |> (validateRequired fieldName)
+
+    /// <summary>
+    ///     Get the value of a boolean field from a Javascript object.
+    ///     Raises an exception if the field contains a value of type other than
+    ///     boolean.
+    /// </summary>
+    ///
+    /// <param name="fieldName">
+    ///     The name of the field to get.
+    /// </param>
+    ///
+    /// <param name="parentObj">
+    ///     The Javascript object from which to get the field.
+    /// </param>
+    ///
+    /// <returns>
+    ///     The optional value of the field if it is a boolean.
+    /// </returns>
+    let getBooleanOption
+        (fieldName : string)
+        (parentObj : obj) : bool option =
+
+        getFieldOption
+            TypePredicate.isBoolean
+            fieldName
+            parentObj
+
+    /// <summary>
+    ///     Get the value of a boolean field from a Javascript object.
+    ///     Raises an exception if the field does not contain a value of type
+    ///     boolean.
+    /// </summary>
+    ///
+    /// <param name="fieldName">
+    ///     The name of the field to get.
+    /// </param>
+    ///
+    /// <param name="parentObj">
+    ///     The Javascript object from which to get the field.
+    /// </param>
+    ///
+    /// <returns>
+    ///     The value of the field if it is a boolean.
+    /// </returns>
+    let getBoolean
+        (fieldName : string)
+        (parentObj : obj) : bool =
+
+        getBooleanOption
             fieldName
             parentObj
         |> (validateRequired fieldName)
